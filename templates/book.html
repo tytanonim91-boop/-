@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Онлайн-запис</h1>
+{% if message %}<p>{{ message }}</p>{% endif %}
+<form method="get">
+  <label>Дата:<input type="date" name="date" value="{{ selected_date }}">
+  <button type="submit">Оновити</button></label>
+</form>
+<form method="post">
+  <input type="hidden" name="date" value="{{ selected_date }}">
+  <label>Ім'я:<br><input type="text" name="name" required></label><br>
+  <label>Послуга:<br>
+    <select name="service">
+    {% for s in services %}
+      <option value="{{ s }}">{{ s }}</option>
+    {% endfor %}
+    </select>
+  </label><br>
+  <label>Тип авто:<br>
+    <select name="car_type">
+    {% for c in car_types %}
+      <option value="{{ c }}">{{ c }}</option>
+    {% endfor %}
+    </select>
+  </label><br>
+  <label>Час:<br>
+    <select name="time">
+    {% for t in slots %}
+      <option value="{{ t }}">{{ t }}</option>
+    {% endfor %}
+    </select>
+  </label><br>
+  <button type="submit">Записатись</button>
+</form>
+{% if not slots %}
+<p>На цей день немає вільних слотів.</p>
+{% endif %}
+{% endblock %}
