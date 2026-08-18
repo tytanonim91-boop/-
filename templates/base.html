@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <title>{{ brand }}</title>
+</head>
+<body>
+<nav>
+  <a href="{{ url_for('book') }}">Запис</a> |
+  <a href="{{ url_for('my_bookings') }}">Мої записи</a> |
+  <a href="{{ url_for('about') }}">Про нас</a>
+</nav>
+<hr>
+{% block content %}{% endblock %}
+</body>
+</html>

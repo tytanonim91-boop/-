@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Мої записи</h1>
+<form method="get">
+  <label>Ім'я:<input type="text" name="name" value="{{ name or '' }}">
+  <button type="submit">Показати</button></label>
+</form>
+{% if bookings %}
+<ul>
+{% for b in bookings %}
+  <li>{{ b[2] }} {{ b[3] }} – {{ b[0] }}, {{ b[1] }}</li>
+{% endfor %}
+</ul>
+{% elif name %}
+<p>Записів не знайдено.</p>
+{% endif %}
+{% endblock %}
