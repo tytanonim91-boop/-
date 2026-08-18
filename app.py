@@ -12,7 +12,7 @@ WORK_END_HOUR = int(os.getenv('WORK_END_HOUR', 18))
 SLOT_MINUTES = int(os.getenv('SLOT_MINUTES', 30))
 BOXES = int(os.getenv('BOXES', 2))
 BRAND_NAME = os.getenv('BRAND_NAME', 'CarWash')
-ADMIN_TOKEN = os.getenv('ADMIN_TOKEN', 'admin')
+ADMIN_TOKEN = os.environ['ADMIN_TOKEN']
 
 TZ = ZoneInfo('Europe/Kyiv')
 DAY_NAMES = ['понеділок', 'вівторок', 'середа', 'четвер', 'пʼятниця', 'субота', 'неділя']
